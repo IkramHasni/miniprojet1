@@ -1,0 +1,41 @@
+<div class="container">
+
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-3">
+      <label>Nom Fragrance en tapant</label>
+      <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control">
+    </div>
+  </form>
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th><th>Nom</th><th>Marque</th><th>Volume (ml)</th>
+            <th>Prix</th><th>Date Création</th><th>Famille</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (fragrance of fragrances | searchFilter: searchTerm; track fragrance.idFragrance) {
+            <tr>
+              <td>{{ fragrance.idFragrance }}</td>
+              <td>{{ fragrance.nomFragrance }}</td>
+              <td>{{ fragrance.marque }}</td>
+              <td>{{ fragrance.volumeMl }}</td>
+              <td>{{ fragrance.prixFragrance }}</td>
+              <td>{{ fragrance.dateCreation | date:'dd/MM/yyyy' }}</td>
+              @if (fragrance.famille) {
+                <td>{{ fragrance.famille.nomFam }}</td>
+              } @else {
+                <td>PAS DE FAMILLE</td>
+              }
+            </tr>
+          } @empty {
+            <tr><td colspan="7">Aucune fragrance trouvée.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
