@@ -3,12 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Fragrance } from '../model/fragrance.model';
 import { FamilleOlfactive } from '../model/famille-olfactive.model';
 
-/**
- * Service SANS backend : les données sont gardées en mémoire.
- * Les méthodes renvoient des Observable (comme HttpClient) :
- * si plus tard tu ajoutes Spring Boot, il suffira de remplacer
- * le corps des méthodes par des appels this.http.get / post / put / delete.
- */
+
 @Injectable({
   providedIn: 'root'
 })

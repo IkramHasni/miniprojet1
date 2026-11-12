@@ -22,16 +22,16 @@ export class RechercheParNom implements OnInit {
     this.fragranceService.listeFragrances().subscribe(frags => this.fragrances = frags);
   }
 
-  /* --- Variantes vues dans le TP (au choix) ---
+  /* 
   nomFragrance!: string;
-  rechercherFrags() {            // 1) recherche via le service avec un bouton
+  rechercherFrags() {            // 1) recherche avec un bouton
     if (this.nomFragrance)
       this.fragranceService.rechercherParNom(this.nomFragrance)
         .subscribe(frags => this.fragrances = frags);
     else
       this.fragranceService.listeFragrances().subscribe(frags => this.fragrances = frags);
   }
-  onKeyUp(filterText: string) {  // 2) recherche avec l'event keyup
+  onKeyUp(filterText: string) {  // 2) recherche avec  keyup
     this.fragrances = this.allFragrances.filter(item =>
       item.nomFragrance!.toLowerCase().includes(filterText.toLowerCase()));
   }

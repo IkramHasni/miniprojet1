@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Fragrance } from '../model/fragrance.model';
 import { FragranceService } from '../services/fragrance.service';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-fragrances',
@@ -13,7 +14,8 @@ import { RouterLink } from '@angular/router';
 export class Fragrances implements OnInit {
   fragrances: Fragrance[] = []; //un tableau de Fragrance
 
-  constructor(private fragranceService: FragranceService) {}
+  constructor(private fragranceService: FragranceService ,
+    public authService: AuthService)  {}
 
   ngOnInit() {
     this.chargerFragrances();

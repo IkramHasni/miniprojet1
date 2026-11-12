@@ -25,8 +25,7 @@ export class UpdateFragrance implements OnInit {
   ngOnInit() {
     this.familles = this.fragranceService.familles;
     this.fragranceService.consulterFragrance(this.activatedRoute.snapshot.params['id'])
-      .subscribe(f => {
-        this.currentFragrance = f;
+      .subscribe(f => { this.currentFragrance = f;
         this.updatedFamId = f.famille?.idFam;
       });
   }

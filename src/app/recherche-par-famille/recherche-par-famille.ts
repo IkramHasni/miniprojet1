@@ -21,13 +21,11 @@ export class RechercheParFamille implements OnInit {
 
   ngOnInit(): void {
     this.familles = this.fragranceService.familles;
-    // au départ on affiche toutes les fragrances
     this.fragranceService.listeFragrances().subscribe(frags => this.fragrances = frags);
   }
 
   onChange(id: any) {
     this.idFam = +id;
-    this.fragranceService.rechercherParFamille(this.idFam)
-      .subscribe(frags => this.fragrances = frags);
+    this.fragranceService.rechercherParFamille(this.idFam).subscribe(frags => this.fragrances = frags);
   }
 }
